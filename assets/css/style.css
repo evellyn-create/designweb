@@ -78,6 +78,10 @@ img .last-jobs {
     margin-right: 20px;
 }
 
+.none{
+  display: none;
+}
+
 @media screen and (max-width: 668px) {
   header {
     padding: 0.5em 1em;

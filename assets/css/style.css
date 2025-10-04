@@ -78,5 +78,83 @@ img .last-jobs {
     margin-right: 20px;
 }
 
+@media screen and (max-width: 668px) {
+  header {
+    padding: 0.5em 1em;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .links-nav {
+    display: none;
+  }
+
+  .none {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .conteudo {
+    margin-left: 0;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .perfil h1 {
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .perfil h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .perfil p {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 70%;
+    margin: 0 ;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+
+  .perfil button {
+    font-size: 14px;
+    width: 80%;
+    margin: 15px auto 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  figure .foto img {
+    max-width: 180px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .last-jobs ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .last-jobs li img {
+    width: 100px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

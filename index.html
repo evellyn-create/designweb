@@ -5,48 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <header class="container mx-auto">
+    <header class="container max-w-7xl mx-auto flex justify-between pt-4">
         <figure>
-            <img src="img/logo.svg" alt="Logo de Infoweb by turm InfoWebeti">
+            <img class="w-40 pt-10" src="img/logo.svg" alt="Logo de Infoweb by turm InfoWebeti">
         </figure>
         <nav>
-            <menu>
+            <menu class="flex gap-8 text-gray-500 py-8 items-center">
                 <li>
-                    <a href="#sobre"></a> Sobre</li>
+                    <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#sobre">Sobre </a></li>
                 <li>
-                    <a href="#professores"></a>Professores</li>
+                    <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#professores">Professores</a></li>
                 <li>
-                    <a href="#alunos"></a>Alunos</li>
+                    <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#alunos">Alunos</a></li>
                 <li>
-                    <a href="#projetos"></a>Projetos</li>
+                    <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#projetos">Projetos</a></li>
                 <li>
-                    <a href="#documentos"></a>Documentos</li>
-                <button>Botao Legal</button>
+                <button class="bg-gray-800 py-2 px-3 rounded-sm"><a class="text-gray-100" href="#documentos">Documentos</a></li></button>
             </menu>
         </nav>
 
     </header>
 
-    <main class="container mx-auto"> 
+    <main class="container max-w-7xl mx-auto"> 
         <!-- hero -->
-        <section class="p-10 bg-gray-100 rounded-lg">
-            <h1>Depois de muita espera, ela finalmente chegou!</h1>
-            <p>O formulário para aquisição da camisa está oficialmente aberto! Com um design original e dois modelos únicos, você vai poder mostrar todo 
+        <section class="flex flex-col items-center p-20 my-10 bg-gray-100 rounded-lg ">
+            <h1 class="text-5xl max-w-140 font-semibold">Depois de muita espera, ela finalmente chegou!</h1>
+            <p class="my-10 max-w-140 text-gray-500">O formulário para aquisição da camisa está oficialmente aberto! Com um design original e dois modelos únicos, você vai poder mostrar todo 
                 o seu orgulho de fazer parte dessa turma incrível!</p>
 
-            <div class="">
-
-                <a href="#" class="">Ser feliz agora</a>
-                <a href="#" class="">Ficar triste</a>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="bg-sky-700 text-white py-4 px-8 rounded-sm">Ser feliz agora</a>
+                <a href="#" class="bg-white text-gray-800 py-4 px-8 rounded-sm border-1">Ficar triste</a>
             </div>
         </section>
 
         <!-- logos -->
 
          <section>
-            <ul class="flex">
+            <ul class="flex gap-20 justify-center">
                 <li><img src="img/logo1.jpg" alt=""></li>
                 <li><img src="img/logo2.jpg" alt=""></li>
                 <li><img src="img/logo3.jpg" alt=""></li>
@@ -59,25 +58,35 @@
 
         <!--Destaques -->
 
-        <section>
+        <section class="flex gap-8 my-20 text-gray-500">
+            <div class="flex-gap-4 justify-between"> 
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </div>
+
             <div>
                 <strong>Ela é bonita</strong>
-                <span>Além de linda, ela é a mais top.</span>
+                <p>Além de linda, ela é a mais top.</p>
             </div>
 
+            <div class="flex-gap-4"> 
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </div>
             <div>
                 <strong>O azul destaque</strong>
-                <span>O azul royal ficou para trás. Contemple o novo azul esmeralda</span>
+                <p>O azul royal ficou para trás.</p>
             </div>
 
+            <div class="flex-gap-4"> 
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </div>
             <div>
                 <strong>Webeti</strong>
-                <span>O nosso mascote é um gênio de informática</span>
+                <p>O nosso mascote é um gênio de informática</p>
             </div>
         </section>
         <!-- mockup da camiseta da turma-->
 
-        <figure> <img src="img/mockup.png" alt=""></figure>
+        <figure> <img src="img/mockup.png" class="w-full" alt=""></figure>
         <h2>Alunos que ja copraram.</h2>
         <p>Junte-se aos milhares de alunos de info que já estão vestindo a nossa camiseta linda e maravilhosa.</p>
 

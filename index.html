@@ -13,12 +13,12 @@
 </head>
 <body>
 
-    <header class="container max-w-7xl mx-auto flex justify-between pt-4">
+    <header class="items-center md:px-0 px-5 container max-w-7xl mx-auto flex justify-between py-8">
         <figure>
-            <img class="w-40 pt-7" src="img/logo.svg" alt="Logo de Infoweb by turm InfoWebeti">
+            <img class="w-40" src="img/logo.svg" alt="Logo de Infoweb by turm InfoWebeti">
         </figure>
         <nav>
-            <menu class="nav flex gap-8 text-gray-500 py-8 items-center">
+            <menu class="nav md:flex gap-8 text-gray-500 py-8 items-center hidden">
 
                 
                 <li>
@@ -32,15 +32,39 @@
                 <li>
                 <button class="bg-gray-800 py-2 px-3 rounded-sm"><a class="text-gray-100" href="#documentos">Documentos</a></li></button>
                 
-                <div class="bar hidden">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
+                
             </menu>
+            
+            <div class="drawer md:hidden">
+                <input id="my-drawer-1" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content">
+                  <!-- Page content here -->
+                  <label for="my-drawer-1" class="btn drawer-button bg-transparent border-none shadow-none text-2xl"><i class="fa-solid fa-bars"></i></label>
+                </div>
+                <div class="drawer-side">
+                  <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
+                  <ul class="menu bg-base-200 min-h-full w-60 p-4 gap-4">
+                    <!-- Sidebar content here -->
+                    <li>
+                        <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#sobre">Sobre </a></li>
+                    <li>
+                        <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#professores">Professores</a></li>
+                    <li>
+                        <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#alunos">Alunos</a></li>
+                    <li>
+                        <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#projetos">Projetos</a></li>
+                    <li>
+                    <button class="bg-gray-800 py-2 px-3 rounded-sm"><a class="text-gray-100" href="#documentos">Documentos</a></li></button>
+                  </ul>
+                </div>
+              </div>
         </nav>
+
+        
 
     </header>
 
-    <main class="container max-w-7xl mx-auto"> 
+    <main class="container max-w-7xl mx-auto overflow-x-hidden"> 
         <!-- hero -->
         <section class="flex flex-col items-center p-20 my-10 bg-gray-100 rounded-lg ">
             <h1 class="text-5xl max-w-140 font-semibold">Depois de muita espera, ela finalmente chegou!</h1>
@@ -66,20 +90,20 @@
         <!-- logos -->
 
          <section>
-            <ul class="flex gap-20 justify-center">
-                <li><img src="img/logo1.jpg" alt=""></li>
-                <li><img src="img/logo2.jpg" alt=""></li>
-                <li><img src="img/logo3.jpg" alt=""></li>
-                <li><img src="img/logo4.jpg" alt=""></li>
-                <li><img src="img/logo5.jpg" alt=""></li>
-                <li><img src="img/logo6.jpg" alt=""></li>
-                <li><img src="img/logo7.jpg" alt=""></li>
+            <ul class="flex gap-20 md:justify-between px-5">
+                <li class="flex-none"><img src="img/logo1.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo2.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo3.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo4.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo5.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo6.jpg" alt=""></li>
+                <li class="flex-none"><img src="img/logo7.jpg" alt=""></li>
             </ul>
          </section>
 
         <!--Destaques -->
 
-        <section class="flex gap-10 justify-between my-20 text-gray-500 border-b border-gray-800 space-y-8">
+        <section class="md:flex gap-10 justify-between my-20 text-gray-500 md:border-b border-gray-800 space-y-8">
             
 
             <div class="collapse collapse-arrow bg-base-100 ">
@@ -104,19 +128,21 @@
         </section>
         <!-- mockup da camiseta da turma-->
 
-        <figure> <img src="img/mockup.png" class="w-full" alt=""></figure>
+        <figure>  
+            <div class="bg-base-200 w-full h-96 rounded-lg bg-[url(img/mockup.png)] bg-cover bg-position-[-525px] sm:bg-center mb-10"></div> 
+        </figure>
 
 
 
-       <div class="mt-10  flex flex-col gap-3 justify-center items-center mx-auto text-center">
+       <div class=" md:mt-10 flex flex-col gap-3 justify-center items-center mx-auto text-center">
             <div class="mt-10 flex flex-col justify-center items-center mx-auto text-center">
-                <h2 class="text-5xl font-medium mb-5">Alunos que ja compraram.</h2>
-                <p class="text-gray-500 ">Junte-se aos milhares de alunos de info que já estão vestindo a nossa camiseta linda e maravilhosa.</p>
+                <h2 class="text-3xl md:text-5xl font-semibold mb-5">Alunos que ja compraram.</h2>
+                <p class="font-medium md:text-lg text-gray-500">Junte-se aos milhares de alunos de info que já estão vestindo a nossa camiseta linda e maravilhosa.</p>
             
             </div>
         
 
-            <section class="flex gap-3 mb-6">
+            <section class="md:flex gap-3 mb-6">
                 <div class="card text-primary-content w-96 mb-4">
                     <div class="flex flex-col items-center gap-2 text-gray-800">
                         <h2 class="card-title font-medium p-6 text-gray-800 text-5xl">243+</h2>

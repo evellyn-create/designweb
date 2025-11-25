@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="resp.css">
+    
 </head>
 <body>
+
     <header class="container max-w-7xl mx-auto flex justify-between pt-4">
         <figure>
             <img class="w-40 pt-7" src="img/logo.svg" alt="Logo de Infoweb by turm InfoWebeti">
         </figure>
         <nav>
-            <menu class="flex gap-8 text-gray-500 py-8 items-center">
+            <menu class="nav flex gap-8 text-gray-500 py-8 items-center">
+
+                
                 <li>
                     <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#sobre">Sobre </a></li>
                 <li>
@@ -24,6 +31,10 @@
                     <a class="hover:bg-[#0D639B] hover:text-white py-1 px-3 rounded-sm" href="#projetos">Projetos</a></li>
                 <li>
                 <button class="bg-gray-800 py-2 px-3 rounded-sm"><a class="text-gray-100" href="#documentos">Documentos</a></li></button>
+                
+                <div class="bar hidden">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </menu>
         </nav>
 
@@ -37,8 +48,18 @@
                 o seu orgulho de fazer parte dessa turma incrível!</p>
 
             <div class="flex justify-center gap-4">
-                <a href="#" class="bg-sky-700 text-white py-4 px-8 rounded-sm">Ser feliz agora</a>
-                <a href="#" class="bg-white text-gray-800 py-4 px-8 rounded-sm border-1">Ficar triste</a>
+                <a href="#" class=" btn btn-neutral px-8 py-6">Ser feliz agora</a>
+                <div>
+                    <a href="#" class="btn btn-neutral btn-dash px-8 py-6" onclick="showAlert(event)">Ficar triste</a>
+                </div>
+
+            <div role="alert" class="alert alert-warning hidden absolute top-10" id="toast-notification">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <span>Aviso: você não pode ficar triste!</span>
+            </div>
+
             </div>
         </section>
 
@@ -58,36 +79,25 @@
 
         <!--Destaques -->
 
-        <section class="flex gap-10 justify-between my-20 text-gray-500 border-b-2 border-gray-200 space-y-7">
+        <section class="flex gap-10 justify-between my-20 text-gray-500 border-b border-gray-800 space-y-8">
             
 
-            <div class="">
-                <div class="flex gap-2 items-baseline"> 
-                <i class="fa-solid fa-chevron-right text-sm"></i>
-                <strong>Ela é bonita</strong>
-            </div>
-                
-                <p class="ml-5">Além de linda, ela é a mais top.</p>
+            <div class="collapse collapse-arrow bg-base-100 ">
+                <input type="radio" name="my-accordion-2" checked="checked" />
+                <div class="collapse-title font-semibold">Ela é bonita</div>
+                <div class="collapse-content text-sm">Além de linda, ela é a mais top.</div>
             </div>
 
-
-
-            <div class="">
-                <div class="flex gap-2 items-baseline"> 
-                <i class="fa-solid fa-chevron-right text-sm"></i>
-                <strong>O azul destaque</strong>
-            </div>
-                
-                <p class="ml-5">O azul royal ficou para trás.</p>
+            <div class="collapse collapse-arrow bg-base-100">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">O azul destaque</div>
+                <div class="collapse-content text-sm">O azul royal ficou para trás.</div>
             </div>
 
-            <div class="">
-                <div class="flex gap-2 items-baseline"> 
-                <i class="fa-solid fa-chevron-right text-sm"></i>
-                <strong>Webeti</strong>
-            </div>
-                
-                <p class="ml-5">O nosso mascote é um gênio de informática</p>
+            <div class="collapse collapse-arrow bg-base-100">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title font-semibold">Webeti</div>
+                <div class="collapse-content text-sm">O nosso mascote é um gênio de informática</div>
             </div>
             
             
@@ -95,27 +105,46 @@
         <!-- mockup da camiseta da turma-->
 
         <figure> <img src="img/mockup.png" class="w-full" alt=""></figure>
-        <div class="mt-10 w-150 flex flex-col items-center mx-auto text-center">
-            <h2 class="text-5xl font-medium mb-5">Alunos que ja compraram.</h2>
-            <p class="text-gray-500 ">Junte-se aos milhares de alunos de info que já estão vestindo a nossa camiseta linda e maravilhosa.</p>
-            </div>
 
-        <section class="grid grid-cols-3 gap-4 text-center my-10">
-            <div class="">
-                <h3 class="text-5xl">243+</h3>
-                <span>Alunos felizes</span>
-            </div>
 
-            <div class="">
-                <h3 class="text-5xl">38.903+</h3>
-                <span>Alunos adquirindo agora</span>
-            </div>
 
-            <div class="">
-                <h3 class="text-5xl">154+</h3>
-                <span>Alunos tristes</span>
+       <div class="mt-10  flex flex-col gap-3 justify-center items-center mx-auto text-center">
+            <div class="mt-10 flex flex-col justify-center items-center mx-auto text-center">
+                <h2 class="text-5xl font-medium mb-5">Alunos que ja compraram.</h2>
+                <p class="text-gray-500 ">Junte-se aos milhares de alunos de info que já estão vestindo a nossa camiseta linda e maravilhosa.</p>
+            
             </div>
-        </section>
+        
+
+            <section class="flex gap-3 mb-6">
+                <div class="card text-primary-content w-96 mb-4">
+                    <div class="flex flex-col items-center gap-2 text-gray-800">
+                        <h2 class="card-title font-medium p-6 text-gray-800 text-5xl">243+</h2>
+                        <p>Alunos felizes</p>
+
+                    </div>
+                </div>
+
+                <div class="card text-primary-content w-96 mb-4">
+                    <div class="flex flex-col items-center gap-2 text-gray-800">
+                        <h2 class="card-title font-medium p-6 text-gray-800 text-5xl">38.903+</h2>
+                        <p>Alunos adquirindo agora</p>
+                    </div>
+                </div>
+
+                <div class="card text-primary-content w-96 mb-4">
+                    <div class="flex flex-col items-center gap-2 text-gray-800">
+                        <h2 class="card-title font-medium p-6 text-gray-800 text-5xl">154+</h2>
+                        <p>Alunos tristes</p>
+                        
+                </div>
+            </section>
+        </div>
+ 
+        </div>
+
+        <script src="script.js"></script>
     </main>
+    
 </body>
 </html>

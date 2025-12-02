@@ -4,276 +4,238 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso de Design de Interfaces – Página do Curso</title>
-   
+    <title>Curso de Design de Interfaces – Blueprintt Style (Themeable)</title>
 
-    <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- DaisyUI via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
-    <link rel="stylesheet" href="aula-37-style-tema.css">
-    <script src="token.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- adicione o script de customização do Tailwind -->
+    <!-- adicione o css de customização do DaisyUI -->
 </head>
 
-<body class="min-h-screen flex flex-col bg-base-100">
+<body
+    class="font-[Inter] min-h-screen flex flex-col bg-base-100 text-base-content bg-glow-effect transition-colors duration-300">
 
-    <!-- NAVBAR -->
-    <header class="navbar bg-ifrn-green-50 shadow-sm px-4 md:px-8">
-        <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl">
-                <span class="font-bold">Design de Interfaces</span>
-                <span class="hidden sm:inline-block opacity-70 ml-2 text-sm">
-                    / Fundamentos de Tema & DaisyUI
-                </span>
-            </a>
-        </div>
-
-        <div class="flex-none gap-4 items-center">
-            <!-- Indicador de turma -->
-            <div class="hidden md:flex flex-col text-right text-xs">
-                <span class="font-semibold uppercase tracking-wide">Turma 2025.1</span>
-                <span class="opacity-70">Noites · 60h</span>
+    <header class="sticky top-0 z-50 w-full border-b border-base-content/5 bg-base-100/70 backdrop-blur-md">
+        <div class="navbar max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-xl hover:bg-base-content/5 p-2 rounded-lg gap-3">
+                    <div
+                        class="w-8 h-8 rounded bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-content font-bold text-xs shadow-lg shadow-primary/30">
+                        DI
+                    </div>
+                    <div class="flex flex-col items-start leading-none">
+                        <span class="font-bold tracking-tight">Design de Interfaces</span>
+                        <span class="text-[10px] opacity-60 font-medium mt-0.5 uppercase tracking-wider">
+                            Turma 2025.1
+                        </span>
+                    </div>
+                </a>
             </div>
 
-            <!-- Seletor de tema -->
-            <div class="form-control">
-                <label class="label flex flex-col items-start gap-1">
-                    <span class="label-text text-xs uppercase tracking-wide">
-                        Tema da interface
-                    </span>
-                    <select id="theme-select" class="select select-bordered select-sm w-40">
-                    </select>
-                </label>
+            <div class="flex-none gap-4 items-center">
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button"
+                        class="btn btn-sm btn-ghost border border-base-content/10 opacity-80 hover:opacity-100 hover:border-base-content/20 hover:bg-base-content/5">
+                        <span class="text-xs font-normal">Alterar Tema</span>
+                        <svg width="12px" height="12px" class="fill-current opacity-60"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+                            <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-200 border border-base-content/10 rounded-box w-52 mt-4 text-sm"
+                        id="theme-dropdown">
+                    </ul>
+                    <select id="theme-select" class="hidden"></select>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="flex-1 py-8 px-4 md:px-8">
-        <div class="max-w-6xl mx-auto grid gap-8 lg:grid-cols-[2fr,1fr]">
+    <main class="flex-1 py-12 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto grid gap-10 lg:grid-cols-[2.5fr,1fr]">
 
-            <!-- COLUNA PRINCIPAL -->
-            <section class="space-y-6">
+            <section class="space-y-10">
 
-                <!-- HERO / OVERVIEW DO CURSO -->
-                <div class="hero bg-base-200 rounded-box">
-                    <div class="hero-content flex-col lg:flex-row lg:items-start gap-10">
+                <div
+                    class="relative overflow-hidden rounded-2xl border border-base-content/5 bg-base-200/50 shadow-2xl">
+                    <div
+                        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent">
+                    </div>
 
-                        <div class="space-y-4">
-                            <h1 class="text-3xl md:text-4xl font-bold">
-                                Design de Interfaces com Foco em Temas e Design Systems
-                            </h1>
-                            <p class="text-sm md:text-base opacity-80 max-w-2xl">
-                                Curso orientado a prática para entender como um
-                                <span class="font-semibold">design system baseado em tokens e temas</span>
-                                pode alinhar produto, UX e desenvolvimento.
-                            </p>
-                            <div class="flex flex-wrap gap-3 items-center">
-                                <div class="badge badge-primary">Nível intermediário</div>
-                                <div class="badge badge-outline">Projeto prático</div>
-                                <div class="badge badge-outline">Foco em Tailwind + DaisyUI</div>
+                    <div class="hero-content flex-col lg:flex-row lg:items-start gap-8 p-8 md:p-12">
+                        <div class="space-y-6 w-full">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-wider">
+                                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                Inscrições Abertas
                             </div>
 
-                            <div class="flex flex-wrap gap-3 pt-2">
-                                <button class="btn btn-primary">
-                                    Ver plano de aula
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+                                Design Systems com <br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                                    Foco em Escala
+                                </span>
+                            </h1>
+
+                            <p class="text-lg opacity-70 max-w-2xl leading-relaxed">
+                                Domine a criação de interfaces consistentes utilizando tokens, temas e a arquitetura
+                                moderna do Tailwind CSS e DaisyUI.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4 pt-4">
+                                <button
+                                    class="btn btn-primary border-0 bg-gradient-to-r from-primary to-secondary text-primary-content shadow-lg shadow-primary/25 px-8 h-12 rounded-xl text-base font-medium transition-transform hover:scale-105">
+                                    Começar agora
                                 </button>
-                                <button class="btn btn-ghost">
-                                    Baixar cronograma
+                                <button
+                                    class="btn btn-ghost border border-base-content/10 hover:bg-base-content/5 h-12 rounded-xl px-6">
+                                    Ver ementa completa
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- BLOCO: OBJETIVOS DE APRENDIZAGEM -->
-                <section class="card bg-base-100 shadow-sm border border-base-200">
-                    <div class="card-body">
-                        <h2 class="card-title text-lg md:text-xl">
-                            Objetivos de aprendizagem
-                        </h2>
-                        <p class="text-sm opacity-80">
-                            Ao final do curso, o aluno deve ser capaz de estruturar um design system
-                            mínimo, implementar temas e negociar decisões visuais com times de produto
-                            e desenvolvimento sem cair na guerra de opinião.
-                        </p>
-                        <div class="grid md:grid-cols-3 gap-4 pt-4 text-sm">
-                            <div class="space-y-2">
-                                <h3 class="font-semibold text-sm">Fundamentos</h3>
-                                <ul class="list-disc list-inside opacity-80">
-                                    <li>Design system & tokens</li>
-                                    <li>Temas e identidade visual</li>
-                                    <li>Princípios de consistência</li>
+                <section class="rounded-2xl border border-base-content/5 bg-base-200/30 p-1">
+                    <div class="bg-base-100/60 rounded-xl p-8 backdrop-blur-sm">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-2 bg-accent/10 rounded-lg text-accent">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-xl font-bold">Objetivos de aprendizagem</h2>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="space-y-3">
+                                <h3 class="font-semibold border-l-2 border-primary pl-3">Fundamentos</h3>
+                                <ul class="space-y-2 text-sm opacity-70">
+                                    <li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> Design
+                                        system & tokens</li>
+                                    <li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span> Temas e
+                                        identidade</li>
+                                    <li class="flex items-start gap-2"><span class="text-primary mt-1">✓</span>
+                                        Consistência</li>
                                 </ul>
                             </div>
-                            <div class="space-y-2">
-                                <h3 class="font-semibold text-sm">Hands-on</h3>
-                                <ul class="list-disc list-inside opacity-80">
-                                    <li>Tailwind + DaisyUI via CDN</li>
-                                    <li>Componentização na prática</li>
-                                    <li>Protótipo navegável</li>
+                            <div class="space-y-3">
+                                <h3 class="font-semibold border-l-2 border-secondary pl-3">Hands-on</h3>
+                                <ul class="space-y-2 text-sm opacity-70">
+                                    <li class="flex items-start gap-2"><span class="text-secondary mt-1">✓</span>
+                                        Tailwind + DaisyUI</li>
+                                    <li class="flex items-start gap-2"><span class="text-secondary mt-1">✓</span>
+                                        Componentização</li>
+                                    <li class="flex items-start gap-2"><span class="text-secondary mt-1">✓</span>
+                                        Protótipo real</li>
                                 </ul>
                             </div>
-                            <div class="space-y-2">
-                                <h3 class="font-semibold text-sm">Visão de produto</h3>
-                                <ul class="list-disc list-inside opacity-80">
-                                    <li>Trade-offs de tema</li>
-                                    <li>Modo claro/escuro</li>
-                                    <li>Governança de design</li>
+                            <div class="space-y-3">
+                                <h3 class="font-semibold border-l-2 border-accent pl-3">Estratégia</h3>
+                                <ul class="space-y-2 text-sm opacity-70">
+                                    <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span>
+                                        Trade-offs de temas</li>
+                                    <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span> Dark mode
+                                        nativo</li>
+                                    <li class="flex items-start gap-2"><span class="text-accent mt-1">✓</span>
+                                        Governança</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- MÓDULOS DO CURSO -->
-                <section class="space-y-4">
-                    <div class="flex items-center justify-between gap-4">
-                        <h2 class="text-lg md:text-xl font-semibold">
-                            Módulos do curso
-                        </h2>
-                        <div class="badge badge-neutral badge-sm">
-                            6 encontros · 10+ horas de prática
+                <section class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-bold">Cronograma</h2>
+                        <div class="badge badge-neutral gap-2 p-3 h-auto">
+                            <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                            6 encontros presenciais
                         </div>
                     </div>
 
-                    <div class="timeline timeline-vertical">
-                        <!-- Módulo 1 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 1
+                    <div class="relative border-l border-base-content/10 ml-3 space-y-8 pb-4">
+
+                        <div class="relative pl-8 group">
+                            <div
+                                class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-base-300 border border-primary shadow-[0_0_10px_oklch(var(--p)/0.5)] group-hover:scale-125 transition-transform">
                             </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">1</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    Introdução a Design Systems e Tokens
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Conceitos, terminologia e exemplos de mercado. Alinhamento de vocabulário
-                                    entre design, produto e dev.
+
+                            <div
+                                class="p-5 rounded-xl bg-base-200/50 border border-base-content/5 hover:border-primary/30 transition-colors">
+                                <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                                    <h3 class="text-lg font-semibold group-hover:text-primary transition-colors">
+                                        Introdução a Design Systems
+                                    </h3>
+                                    <span class="text-xs font-mono opacity-50 bg-base-300 px-2 py-1 rounded">MÓDULO
+                                        01</span>
+                                </div>
+                                <p class="text-sm opacity-70 mb-3 leading-relaxed">
+                                    Conceitos, terminologia e exemplos de mercado. O alinhamento crucial de vocabulário
+                                    entre design e dev.
                                 </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">Conceitos</span>
-                                    <span class="badge badge-outline">Discussão em grupo</span>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] uppercase font-bold tracking-wider text-primary bg-primary/10 px-2 py-1 rounded">Teoria</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Módulo 2 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 2
+                        <div class="relative pl-8 group">
+                            <div
+                                class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-base-300 border border-secondary shadow-[0_0_10px_oklch(var(--s)/0.5)] group-hover:scale-125 transition-transform">
                             </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">2</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    Tailwind como infraestrutura de layout
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Utilitários, breakpoints e composição. Como evitar que o layout vire
-                                    “CSS freestyle”.
+
+                            <div
+                                class="p-5 rounded-xl bg-base-200/50 border border-base-content/5 hover:border-secondary/30 transition-colors">
+                                <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                                    <h3 class="text-lg font-semibold group-hover:text-secondary transition-colors">
+                                        Tailwind como Infraestrutura
+                                    </h3>
+                                    <span class="text-xs font-mono opacity-50 bg-base-300 px-2 py-1 rounded">MÓDULO
+                                        02</span>
+                                </div>
+                                <p class="text-sm opacity-70 mb-3 leading-relaxed">
+                                    Utilitários, breakpoints e composição. Evitando o "CSS Freestyle" e mantendo a
+                                    manutenibilidade.
                                 </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">Hands-on</span>
-                                    <span class="badge badge-outline">Refatoração</span>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] uppercase font-bold tracking-wider text-secondary bg-secondary/10 px-2 py-1 rounded">Prática</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Módulo 3 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 3
+                        <div class="relative pl-8 group">
+                            <div
+                                class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-base-300 border border-accent shadow-[0_0_10px_oklch(var(--a)/0.5)] group-hover:scale-125 transition-transform">
                             </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">3</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    DaisyUI e temas na prática (via CDN)
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Componentes prontos, temas, uso de <code>data-theme</code> e
-                                    customizações simples com CSS variables.
-                                </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">Demo ao vivo</span>
-                                    <span class="badge badge-outline">Exercício guiado</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Módulo 4 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 4
-                            </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">4</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    Troca de tema via JavaScript
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Preferência do usuário, persistência em <code>localStorage</code> e
-                                    discussões sobre acessibilidade e contraste.
-                                </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">JS básico</span>
-                                    <span class="badge badge-outline">UX &amp; A11y</span>
+                            <div
+                                class="p-5 rounded-xl bg-base-200/50 border border-base-content/5 hover:border-accent/30 transition-colors">
+                                <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                                    <h3 class="text-lg font-semibold group-hover:text-accent transition-colors">
+                                        DaisyUI e Temas
+                                    </h3>
+                                    <span class="text-xs font-mono opacity-50 bg-base-300 px-2 py-1 rounded">MÓDULO
+                                        03</span>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Módulo 5 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 5
-                            </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">5</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    Projeto: página de produto com temas
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Cada grupo define um mini design system e implementa em uma página com
-                                    troca de tema funcional.
+                                <p class="text-sm opacity-70 mb-3 leading-relaxed">
+                                    Uso de <code>data-theme</code>, componentes pré-estilizados e customização via CSS
+                                    variables.
                                 </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">Trabalho em grupo</span>
-                                    <span class="badge badge-outline">Entrega parcial</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Módulo 6 -->
-                        <div class="timeline-item">
-                            <div class="timeline-start text-xs md:text-sm opacity-70">
-                                Aula 6
-                            </div>
-                            <div class="timeline-middle">
-                                <div class="badge badge-primary badge-outline">6</div>
-                            </div>
-                            <div class="timeline-end timeline-box bg-base-100 max-w-xl">
-                                <h3 class="font-semibold mb-1">
-                                    Apresentações, feedback e retro
-                                </h3>
-                                <p class="text-sm opacity-80 mb-2">
-                                    Apresentação dos projetos, feedback cruzado e discussão sobre
-                                    decisões de design e trade-offs técnicos.
-                                </p>
-                                <div class="flex flex-wrap gap-2 text-xs">
-                                    <span class="badge badge-outline">Apresentação</span>
-                                    <span class="badge badge-outline">Feedback 360°</span>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] uppercase font-bold tracking-wider text-accent bg-accent/10 px-2 py-1 rounded">Workshop</span>
                                 </div>
                             </div>
                         </div>
@@ -282,101 +244,113 @@
                 </section>
             </section>
 
-            <!-- SIDEBAR -->
-            <aside class="space-y-6">
+            <aside class="space-y-6 lg:sticky lg:top-24 h-fit">
 
-                <!-- Próxima aula -->
-                <div class="card bg-base-100 shadow-sm border border-base-200">
-                    <div class="card-body space-y-3">
-                        <h2 class="card-title text-base md:text-lg">
-                            Próxima aula
+                <div
+                    class="card bg-gradient-to-b from-base-200 to-base-300 border border-base-content/10 shadow-xl overflow-hidden group">
+                    <div class="h-1 w-full bg-base-100">
+                        <div class="h-full w-1/3 bg-gradient-to-r from-primary to-secondary"></div>
+                    </div>
+
+                    <div class="card-body p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-secondary">Próxima
+                                Sessão</span>
+                            <span class="badge badge-error badge-xs badge-outline animate-pulse">Ao vivo</span>
+                        </div>
+
+                        <h2 class="card-title text-lg">
+                            Tailwind Infra
                         </h2>
-                        <div class="flex items-center gap-3">
-                            <div class="avatar placeholder">
-                                <div class="bg-primary text-primary-content rounded-full w-10">
-                                    <span>2</span>
+
+                        <div class="py-3 space-y-3">
+                            <div class="flex items-center gap-3 text-sm opacity-80">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-base-100 flex items-center justify-center opacity-70 border border-base-content/5">
+                                    📅
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Terça-feira</div>
+                                    <div class="text-xs opacity-60">19:00 — 22:00</div>
                                 </div>
                             </div>
-                            <div class="text-sm">
-                                <div class="font-semibold">
-                                    Tailwind como infraestrutura
+                            <div class="flex items-center gap-3 text-sm opacity-80">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-base-100 flex items-center justify-center opacity-70 border border-base-content/5">
+                                    📍
                                 </div>
-                                <div class="opacity-70">
-                                    Terça · 19h–22h · Laboratório 3
+                                <div>
+                                    <div class="font-semibold">Laboratório 3</div>
+                                    <div class="text-xs opacity-60">Bloco C</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="divider my-1"></div>
-                        <ul class="text-sm opacity-80 space-y-1">
-                            <li>• Trazer notebook configurado</li>
-                            <li>• Rever anotações da Aula 1</li>
-                            <li>• Leitura prévia sobre atomic design</li>
+
+                        <div class="divider my-0 opacity-10"></div>
+
+                        <div class="space-y-2 pt-2">
+                            <div class="flex items-center gap-2 text-xs opacity-60">
+                                <input type="checkbox" checked class="checkbox checkbox-xs checkbox-primary" disabled />
+                                <span class="line-through">Configurar VS Code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs opacity-80">
+                                <input type="checkbox" class="checkbox checkbox-xs checkbox-primary" />
+                                <span>Ler artigo sobre Atomic Design</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-sm btn-block mt-4">
+                            Acessar Material
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 border border-base-content/5 shadow-sm">
+                    <div class="card-body p-5 text-sm">
+                        <h3 class="font-semibold mb-3">Links do Curso</h3>
+                        <ul class="space-y-1">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between group hover:bg-base-200 p-2 rounded-lg -mx-2 transition-colors">
+                                    <span class="opacity-70 group-hover:opacity-100 transition-opacity">Repositório
+                                        GitHub</span>
+                                    <svg class="w-4 h-4 opacity-50 group-hover:text-primary" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between group hover:bg-base-200 p-2 rounded-lg -mx-2 transition-colors">
+                                    <span class="opacity-70 group-hover:opacity-100 transition-opacity">Guia de
+                                        Tokens</span>
+                                    <svg class="w-4 h-4 opacity-50 group-hover:text-primary" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </li>
                         </ul>
-                        <div class="card-actions justify-end pt-2">
-                            <button class="btn btn-outline btn-sm">
-                                Ver materiais da aula
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Info rápida -->
-                <div class="card bg-base-100 shadow-sm border border-base-200">
-                    <div class="card-body space-y-3 text-sm">
-                        <h2 class="card-title text-base md:text-lg">
-                            Informações rápidas
-                        </h2>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <div class="opacity-60 text-xs uppercase">Carga horária</div>
-                                <div class="font-semibold">60 horas</div>
-                            </div>
-                            <div>
-                                <div class="opacity-60 text-xs uppercase">Formato</div>
-                                <div class="font-semibold">Presencial</div>
-                            </div>
-                            <div>
-                                <div class="opacity-60 text-xs uppercase">Entrega final</div>
-                                <div class="font-semibold">Página temática</div>
-                            </div>
-                            <div>
-                                <div class="opacity-60 text-xs uppercase">Avaliação</div>
-                                <div class="font-semibold">Projeto + participação</div>
-                            </div>
-                        </div>
-                        <div class="divider my-2"></div>
-                        <div class="space-y-2">
-                            <div class="opacity-60 text-xs uppercase">
-                                Links importantes
-                            </div>
-                            <ul class="space-y-1">
-                                <li>
-                                    <a href="#" class="link link-primary">
-                                        Repositório de exemplos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="link link-primary">
-                                        Guia de tokens e temas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="link link-primary">
-                                        Política de avaliação
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="bg-info/10 border border-info/20 p-4 rounded-xl flex gap-3 items-start">
+                    <div class="text-info mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
-                </div>
-
-                <!-- Aviso "modo laboratório" -->
-                <div class="alert alert-info">
-                    <span class="font-semibold">Modo laboratório:</span>
-                    <span class="text-sm">
-                        Esta página é demo. O objetivo é inspecionar, quebrar e remontar
-                        os componentes sem dó.
-                    </span>
+                    <div class="text-xs opacity-80 leading-relaxed">
+                        <strong class="block mb-1 text-base-content">Modo Laboratório</strong>
+                        Ambiente de teste. O design se adapta ao tema selecionado acima.
+                    </div>
                 </div>
 
             </aside>
@@ -384,15 +358,17 @@
     </main>
 
 
-    <footer class="bg-base-200 mt-8">
+    <footer class="border-t border-base-content/10 bg-base-200 py-8 mt-12">
         <div
-            class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-3 text-sm opacity-80">
-            <div>
-                © 2025 · Curso de Design de Interfaces · Todos os direitos reservados.
+            class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-60">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-neutral rounded-full"></span>
+                <span>© 2025 · Curso de Interfaces</span>
             </div>
-            <div class="flex flex-wrap gap-3 items-center">
-                <span>Docente responsável</span>
-                <span class="badge badge-outline">Prof. Dexter</span>
+            <div class="flex items-center gap-4">
+                <a href="#" class="hover:text-base-content transition-colors">Termos</a>
+                <a href="#" class="hover:text-base-content transition-colors">Privacidade</a>
+                <span class="badge badge-outline text-xs">Prof. Dexter</span>
             </div>
         </div>
     </footer>
@@ -402,27 +378,45 @@
         (function () {
             const html = document.documentElement;
             const select = document.getElementById('theme-select');
+            const dropdown = document.getElementById('theme-dropdown');
 
-            select.addEventListener('change', () => {
-                html.setAttribute('data-theme', select.value);
-            });
-
-
+            // Lista expandida de temas para testar a versatilidade do layout
             const THEME_OPTIONS = [
-                { value: "light", label: "light" },
-                { value: "dark", label: "dark" },
-                { value: "cupcake", label: "cupcake" },
-                { value: "dracula", label: "dracula" },
-                { value: "ifrn", label: "ifrn" } // tema custom
+                { value: "night", label: "Night (Blueprintt Default)" },
+                { value: "light", label: "Light" },
+                { value: "cupcake", label: "Cupcake" },
+                { value: "dracula", label: "Dracula" },
+                { value: "cyberpunk", label: "Cyberpunk" },
+                { value: "corporate", label: "Corporate" },
+                { value: "ifrn", label: "Custom IFRN" }
             ];
 
+            // Renderiza o dropdown customizado
             THEME_OPTIONS.forEach(theme => {
+                // Select original (oculto)
                 const opt = document.createElement("option");
                 opt.value = theme.value;
                 opt.textContent = theme.label;
                 select.appendChild(opt);
+
+                // Menu dropdown visível
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.className = "hover:bg-base-content/10";
+                a.textContent = theme.label;
+                a.onclick = () => {
+                    select.value = theme.value;
+                    html.setAttribute('data-theme', theme.value);
+                    document.activeElement.blur(); // Fecha o dropdown
+                };
+                li.appendChild(a);
+                dropdown.appendChild(li);
             });
 
+            // Listener original mantido para compatibilidade
+            select.addEventListener('change', () => {
+                html.setAttribute('data-theme', select.value);
+            });
 
         })();
     </script>

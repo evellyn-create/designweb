@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br" 
+      x-data="{ 
+          tab: 'home', 
+          dark: false 
+      }"
+      :data-theme="dark ? 'dracula' : 'winter'">
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="min-h-screen transition-colors">
+    
+
+    <nav class="navbar bg-base-100 shadow-lg px-8">
+        <div class="flex-1 font-bold text-xl">DevPortfolio</div>
+        
+        <div class="flex-none gap-2">
+            <!-- Botão HOME -->
+            <button 
+            @click="tab = 'home'" 
+            class="btn btn-sm btn-ghost"
+            :class="{ 'btn-active': tab === 'home' }">
+            Home
+            </button>
+
+            <!-- Botão PROJETOS -->
+            <button 
+            @click="tab = 'projetos'" 
+            class="btn btn-sm btn-ghost"
+            :class="{ 'btn-active': tab === 'projetos' }">
+            Projetos
+            </button>
+
+
+             <button 
+            @click="tab = 'sobre'" 
+            class="btn btn-sm btn-ghost"
+            :class="{ 'btn-active': tab === 'sobre' }">
+            Sobre
+            </button>
+
+             <button 
+            @click="tab = 'contato'" 
+            class="btn btn-sm btn-ghost"
+            :class="{ 'btn-active': tab === 'contato' }">
+            Contato
+            </button>
+            
+            <!-- Botão de Mudar o Dark Mode -->
+            <input type="checkbox" class="toggle" 
+                x-model="dark" />
+        </div>
+    </nav>
+
+    <main class="p-10 max-w-5xl mx-auto">
+
+    <!-- SEÇÃO HOME -->
+        <div x-show="tab === 'home'" 
+            x-transition:enter.duration.500ms>
+            
+            <div class="hero min-h-[50vh] bg-base-200 rounded-box">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold">Olá, eu sou Dev</h1>
+                        <button @click="tab = 'contato'" 
+                                class="btn btn-primary mt-6">
+                            Fale Comigo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div x-show="tab === 'projetos'"
+            <div class="card bg-base-100 shadow-xl" x-data="{ modal: false }">
+                <div class="card-body">
+                    <h2 class="card-title">Projeto X</h2>
+                    <button @click="modal = true" class="btn btn-primary">Ver</button>
+                </div>
+
+                <!-- O MODAL -->
+                <div x-show="modal" 
+                    class="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+                    x-transition.opacity>
+                    
+                    <div @click.outside="modal = false" 
+                            class="bg-base-100 p-8 rounded-lg">
+                        <h3>Detalhes...</h3>
+                        <button @click="modal = false" class="btn">X</button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Outras seções (Projetos, Contato)... -->
+
+        <div x-show="tab === 'sobre'" x-transition x-data="{ ativo: 1 }" class="space-y-2 mt-4">
+            <div class="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="acc" @click="ativo = 1" checked />
+                <div class="collapse-title text-xl font-medium">Campus do Dev</div>
+                <div class="collapse-content"><p>Campus IFRN Zona Norte</p></div>
+            </div>
+            <div class="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="acc" @click="ativo = 2" />
+                <div class="collapse-title text-xl font-medium">Especialidades</div>
+                <div class="collapse-content"><p>Data-base - Front-end - Back-end.</p></div>
+            </div>
+        </div>
+
+        <div x-show="tab === 'contato'" x-transition 
+             x-data="{ email: '', msg: '', enviado: false }" class="max-w-md mx-auto mt-8 bg-base-200 p-6 rounded-xl">
+            
+            <div class="form-control">
+                <label class="label">Email</label>
+                <input x-model="email" class="input input-bordered">
+            </div>
+            
+            <div class="form-control mt-4">
+                <label class="label">Mensagem</label>
+                <textarea x-model="msg" class="textarea textarea-bordered"></textarea>
+            </div>
+
+            <div class="mt-6">
+                <button @click="enviado = true; email=''; msg=''" 
+                        :disabled="!email.includes('@') || msg.length < 5"
+                        class="btn btn-primary w-full">Enviar</button>
+            </div>
+
+            <div x-show="enviado" x-transition class="alert alert-success mt-4 shadow-lg">
+                <span>Mensagem enviada!</span>
+            </div>
+        </div>
+  
+    </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+  <div x-data="{ aberto: false }" @click.outside="aberto = false">
+
+    <button @click="aberto = !aberto" class="btn btn-ghost">
+      Menu
+    </button>
+
+    <div x-show="aberto">
+      <ul class="menu p-2 rounded-box w-52 bg-base-base">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+
+      </ul>
+    </div>
+
+  </div>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+           <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet">
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div x-data="{ tab: 1 }" class="space-y-4">
+
+  <!-- Botões -->
+  <div class="flex gap-2">
+    <button class="btn" @click="tab = 1">Tab 1</button>
+    <button class="btn" @click="tab = 2">Tab 2</button>
+    <button class="btn" @click="tab = 3">Tab 3</button>
+  </div>
+
+  <!-- Conteúdos -->
+  <div x-show="tab === 1" class="p-4 bg-base-200 rounded-box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam similique quo quas suscipit quibusdam. Non eligendi unde exercitationem aliquam amet labore tempora nobis, id temporibus, aspernatur molestias, fugit natus dolore.
+    Iusto corporis ducimus rem dicta modi ullam fugiat laudantium sequi molestiae quos. Eaque nostrum ab reiciendis quas animi nihil blanditiis, dolorem eveniet, numquam veniam cupiditate laboriosam molestias accusantium! Modi, fuga.
+    Itaque, laborum! Omnis error eum accusantium quisquam, dignissimos aperiam repellendus iure, ipsam sequi placeat unde impedit possimus similique deserunt! Nihil numquam explicabo perferendis molestias dignissimos in, tempora soluta itaque quam?
+    Dolore eum quaerat ipsum explicabo similique, enim repellat sed id eius adipisci libero pariatur odit dolorum temporibus laudantium iure debitis, autem sint consectetur harum hic? Voluptatum doloremque id corrupti similique!
+  </div>
+
+  <div x-show="tab === 2" class="p-4 bg-base-200 rounded-box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam similique quo quas suscipit quibusdam. Non eligendi unde exercitationem aliquam amet labore tempora nobis, id temporibus, aspernatur molestias, fugit natus dolore.
+    Iusto corporis ducimus rem dicta modi ullam fugiat laudantium sequi molestiae quos. 
+</div>
+  <div x-show="tab === 3" class="p-4 bg-base-200 rounded-box">
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam similique quo quas suscipit quibusdam. Non eligendi unde exercitationem aliquam amet labore tempora nobis, id temporibus, aspernatur molestias, fugit natus dolore.
+    Iusto corporis ducimus rem dicta modi ullam fugiat laudantium sequi molestiae quos. Eaque nostrum ab reiciendis quas animi nihil blanditiis, dolorem eveniet, numquam veniam cupiditate laboriosam molestias accusantium! Modi, fuga.
+    Itaque, laborum! 
+  </div>
+
+</div>
+
+</body>
+</html>

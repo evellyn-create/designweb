@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+ <div x-data="{ msg: 'Passe o mouse' }"
+       @mouseenter="msg = 'Entrou!'"
+       @mouseleave="msg = 'Saiu!'"
+       x-text="msg"
+       class=" bg-sky-100 rounded-lg w-48 h-48 flex items-center justify-center text-xl">
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div x-data="{ expanded: false }" class="m-4">
+    
+        <p class="mb-2">
+            <span x-show="!expanded">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse 
+                lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum 
+                ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi...  
+            </span>
+    
+            <span x-show="expanded">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse 
+                lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum 
+                ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin 
+                porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit 
+                amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. 
+                Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum 
+                augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut 
+                augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere 
+                cubilia curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.  
+            </span>
+        </p>
+    
+        <button 
+            class="btn btn-ghost btn-sm"
+            @click="expanded = !expanded"
+            x-text="expanded ? 'Ler menos' : 'Ler mais'">
+        </button>
+    
+    </div>
+</body>
+</html>
+
+

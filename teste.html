@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <!-- <div x-data="{ nome: 'Evellyn' }">
+    <h1>
+    Olá, <span x-text="nome"></span>
+    </h1>
+    </div> 
+
+    <div x-data="{ aceso: false }">
+    <button @click="aceso = !aceso">
+        Interruptor
+    </button>
+    
+    Luz: <span x-text="aceso ? '💡' : '🌑'"></span>
+</div> 
+
+    <div x-data="{ msg: '' }">
+  <input x-model="msg" placeholder="Digite algo aqui...">
+  
+  <p>Você digitou: <b x-text="msg"></b></p>
+</div>
+
+    <div x-data="{ n1: 0, n2: 0 }">
+  
+        <input x-model="n1" type="number">
+        +
+        <input x-model="n2" type="number">
+        <span 
+        x-text="parseInt(n1) + parseInt(n2)"
+
+        :class="{ 
+            'text-red-500': (parseInt(n1)+parseInt(n2)) > 10,
+            'text-blue-500': (parseInt(n1)+parseInt(n2)) >= 10
+        }">
+</span>
+
+    </div>  -->
+
+
+<div x-data="{ open: false }">
+
+  <!-- Fecha se apertar ESC -->
+  <div @keydown.escape.window="open = false">
+  
+    <button @click="open = true">Abrir</button>
+
+    <!-- Fecha se clicar fora -->
+    <div x-show="open" 
+         @click.outside="open = false">
+       Sou um Modal!
+    </div>
+    
+  </div>
+
+</div>
+
+    <div x-data="{ on: false }">
+  <button @click="on = !on">Toggle</button>
+
+  <div x-show="on"
+       x-transition
+       x-transition:enter.duration.500ms
+       x-transition:leave.duration.200ms>
+       
+    Olha que suave!
+    
+  </div>
+</div>
+
+
+</body>
+</html>

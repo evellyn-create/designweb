@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-base-200">
+
+    <script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('tasks', {
+        list: [],
+        filter: 'all', 
+
+        get filtered() {
+            if (this.filter === 'todo') return this.list.filter(t => !t.done)
+            if (this.filter === 'done') return this.list.filter(t => t.done)
+            return this.list
+        },
+
+        get pendingCount() {
+            return this.list.filter(t => !t.done).length
+        },
+
+        addTask(text) {
+            if (!text.trim()) return
+            this.list.push({ id: Date.now(), text, done: false })
+        },
+
+        removeTask(id) {
+            this.list = this.list.filter(t => t.id !== id)
+        }
+        })
+    })
+    </script>
+
+    <div x-data class="w-full max-w-xl bg-base-100 rounded-2xl shadow-lg p-6 space-y-5">
+
+    <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold">Minhas Tarefas</h1>
+        <span class="badge badge-primary"> <span x-text="$store.tasks.pendingCount"></span> pendentes </span>
+    </div>
+
+    <div class="flex gap-2">
+        <input
+        x-ref="task"
+        type="text"
+        placeholder="Nova tarefa..."
+        class="input input-bordered w-full"
+        @keyup.enter="$store.tasks.addTask($refs.task.value); $refs.task.value=''"
+        >
+        <button class="btn btn-primary" @click="$store.tasks.addTask($refs.task.value); $refs.task.value=''">
+        
+        </button>
+    </div>
+
+
+    <div class="flex gap-2">
+        <button class="btn btn-sm rounded-full"
+        :class="$store.tasks.filter==='all' ? 'btn-neutral' : 'btn-ghost'"
+        @click="$store.tasks.filter='all'">
+        Todas
+        </button>
+        <button class="btn btn-sm rounded-full"
+        :class="$store.tasks.filter==='todo' ? 'btn-neutral' : 'btn-ghost'"
+        @click="$store.tasks.filter='todo'">
+        Pendentes
+        </button>
+        <button class="btn btn-sm rounded-full"
+        :class="$store.tasks.filter==='done' ? 'btn-neutral' : 'btn-ghost'"
+        @click="$store.tasks.filter='done'">
+        Feitas
+        </button>
+    </div>
+
+
+    <div class="space-y-3">
+        <template x-for="task in $store.tasks.filtered" :key="task.id">
+        <div class="flex items-center justify-between border rounded-xl px-4 py-3">
+            <div class="flex items-center gap-3">
+            <input type="checkbox" class="checkbox checkbox-success" x-model="task.done">
+            <span
+                x-text="task.text"
+                :class="{'line-through text-gray-400': task.done}"
+            ></span>
+            </div>
+        <button
+        class="btn  btn-sm text-gray-500 hover:text-red-500 transition"
+        @click="$store.tasks.removeTask(task.id)"
+        >
+        <wa-icon name="x">X</wa-icon>
+        </button>
+
+        </div>
+        </template>
+    </div>
+
+    </div>
+
+</body>
+</html>

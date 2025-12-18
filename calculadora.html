@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora de Orçamento</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-base-200 min-h-screen flex items-center justify-center">
+
+  <div 
+    class="card w-96 bg-base-100 shadow-xl"
+    x-data="{
+      servicos: [],
+      nome: '',
+      valor: 0,
+
+      adicionar() {
+        if (this.nome && this.valor > 0) {
+          this.servicos.push({
+            nome: this.nome,
+            valor: this.valor
+          })
+          this.nome = ''
+          this.valor = 0
+        }
+      },
+
+      get total() {
+        return this.servicos.reduce((soma, s) => soma + s.valor, 0)
+      }
+    }"
+  >
+
+    <div class="card-body space-y-4">
+
+      <div class="flex items-center gap-2">
+        <div class="badge badge-success p-3">$</div>
+        <h2 class="card-title">Orçamento #001</h2>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="flex gap-2">
+        <input 
+          type="text" 
+          placeholder="Serviço"
+          class="input input-bordered w-full"
+          x-model="nome"
+        />
+
+        <input 
+          type="number"
+          placeholder="Valor"
+          class="input input-bordered w-28"
+          x-model.number="valor"
+        />
+      </div>
+
+      <button 
+        class="btn btn-primary w-full"
+        @click="adicionar"
+      >
+        Adicionar
+      </button>
+
+
+      <template x-for="(servico, index) in servicos" :key="index">
+        <div class="flex justify-between items-center bg-base-200 px-3 py-2 rounded-lg">
+          <span x-text="servico.nome"></span>
+          <span class="font-semibold">
+            R$ <span x-text="servico.valor.toFixed(2)"></span>
+          </span>
+        </div>
+      </template>
+
+
+      <div class="bg-neutral text-neutral-content rounded-lg px-4 py-3 flex justify-between items-center mt-2">
+        <span class="uppercase text-sm">Total</span>
+        <span class="text-lg font-bold text-success">
+          R$ <span x-text="total.toFixed(2)"></span>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
